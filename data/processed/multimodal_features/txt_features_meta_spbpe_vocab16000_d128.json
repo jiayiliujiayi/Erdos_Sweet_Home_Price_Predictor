@@ -1,0 +1,29 @@
+{
+  "id_col": "listing_id",
+  "text_col": "description_text",
+  "target_log_col": "log_sold_price",
+  "tokenizer": {
+    "type": "sentencepiece_bpe_train_only",
+    "vocab_size": 16000,
+    "model_file": "/content/drive/My Drive/SH/data/processed/multimodal_features/sentencepiece_bpe/sp_bpe_16000.model",
+    "pad_id": 0,
+    "bos_id": 1,
+    "eos_id": 2,
+    "unk_id": 3
+  },
+  "model": {
+    "arch": "transformer_chunk_pool",
+    "max_len": 256,
+    "d_model": 192,
+    "n_heads": 6,
+    "n_layers": 3,
+    "ff_dim": 512,
+    "dropout": 0.2,
+    "out_dim": 128
+  },
+  "target_norm": {
+    "y_mean": 12.957889316832095,
+    "y_std": 0.685901248068598
+  },
+  "seed": 42
+}

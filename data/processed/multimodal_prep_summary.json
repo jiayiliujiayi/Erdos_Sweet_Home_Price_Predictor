@@ -1,0 +1,41 @@
+{
+  "total_clean_rows": 179598,
+  "multimodal_rows_total": 179554,
+  "splits": {
+    "train": 143643,
+    "val": 17955,
+    "test": 17956
+  },
+  "criteria": {
+    "target_column": "sold_price",
+    "log_target_column": "log_sold_price",
+    "text_min_length": 30,
+    "split_type": "random",
+    "train_frac": 0.8,
+    "val_frac": 0.1,
+    "test_frac": 0.1,
+    "random_state": 42,
+    "numeric_features": [
+      "beds",
+      "full_baths",
+      "half_baths",
+      "sqft",
+      "year_built",
+      "days_on_mls",
+      "lot_sqft",
+      "hoa_fee",
+      "fed_funds_rate"
+    ],
+    "categorical_features": [
+      "city",
+      "state",
+      "zip_code",
+      "status",
+      "style",
+      "parking_garage",
+      "new_construction",
+      "stories",
+      "county"
+    ]
+  }
+}
