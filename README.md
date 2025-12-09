@@ -1,3 +1,5 @@
+> This README was proofread with assistance from ChatGPT (OpenAI).
+
 # Multimodal House Price Prediction (New Jersey)
 
 This repository contains an end-to-end project for predicting New Jersey house sale prices using:
@@ -311,14 +313,30 @@ The notebooks are designed to be idempotent with respect to file outputs: re-run
 
 ---
 
-## 6. Data Availability in GitHub
+## 6. Data Availability (GitHub vs Zenodo)
 
-Because GitHub is not optimized for large, frequently changing data files:
+Because GitHub is not optimized for large, frequently changing data files, this repository only contains **small example artifacts** under `data` / `data copy`:
 
-* **Only small artifacts (typically `< 1 MB`) are committed** under `data`/`data`.
-* Large CSVs (e.g., full Redfin exports, full embeddings, model checkpoints) are **excluded** or should be added to `.gitignore`.
-* To fully reproduce results, you should:
+- **Only small artifacts (typically `< 1 MB`) are committed** under `data` / `data copy`.
+- Large CSVs (e.g., full Redfin exports, full multimodal splits, full text embeddings) and model checkpoints are **excluded** from the GitHub repo.
 
-  * Generate the larger artifacts by running the notebooks, or
-  * Store them in a separate data storage solution (local disk, cloud storage, etc.) and mirror the directory structure above.
+The **full dataset and derived artifacts** for this project (including large CSVs and text feature files) are archived on **Zenodo**:
+
+- Zenodo record: **[10.5281/zenodo.17861674](10.5281/zenodo.17861674)**
+- Contents (mirroring the structure described above):
+  - Raw Redfin export (`redfin_nj_sold_2015-01-01_to_2025-11-24.csv`)
+  - Cleaned dataset (`redfin_nj_sold_2016plus_basic_clean.csv`)
+  - `train_multimodal.csv`, `val_multimodal.csv`, `test_multimodal.csv`
+  - Text encoder artifacts (SentencePiece model/vocab, encoder checkpoints)
+  - Precomputed text embeddings (`txt_features_*_spbpe_vocab16000_d128.csv`)
+  - Associated JSON metadata files
+
+To **fully reproduce the results**:
+
+1. Download the Zenodo archive.
+2. Extract it so that the directory structure under `data` / `data copy` matches the layout described in this README.
+3. Run the notebooks as documented (they will reuse the downloaded artifacts instead of recreating everything from scratch).
+
+If you prefer not to use Zenodo, you can still regenerate the larger artifacts locally by running the notebooks end-to-end, but using the Zenodo snapshot is the recommended path for exact reproducibility.
+
 
